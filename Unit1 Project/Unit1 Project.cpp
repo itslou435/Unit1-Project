@@ -5,42 +5,46 @@
 #include <iostream>
 #include <string>
 using namespace std;
-const float preTax, postTax, totalPrice;
-float win, d, windows, doors, perimeter;
-int  length, width;
+
+//variables
+float win, windows, doors, perimeter, totalPrice, finalPrice, length, width, perHour;
 const float tax = 0.13;
 
-void postTaxPrice(const float postTax)
+// void functions
+float door(float doors)
 {
+	return doors * 12;
 	
-
 }
-void door(float doors)
+float window(float windows)
 {
-	cout << (d + 12);
-	cout << (doors) << endl;
+	return win * 12;
+	
 }
-void window(float windows)
+float TotalPrice(float doors, float windows, float perimeter)
 {
-	cout << (win + 12);
-	cout << (windows) << endl;
+	return  doors + windows + perimeter;
+	
 }
-void TotalPrice(float doors, float windows)
+float  perimeterC(float length, float width)
 {
-	cout <<  doors + windows;
-	cout << (totalPrice) << endl;
+	return length + width + length + width;
+	
 }
-void perimeterC(float l, float w)
+float FinalPrice( float totalPrice)
 {
-	perimeter = (l + w) + (l + w);
-	cout << perimeter << endl;
-}
-void FinalPrice(const float totalPrice, const float postTax)
-{
-	cout << (totalPrice * tax) ;
-	cout
+	return totalPrice + (totalPrice * tax);
+	
 }
 
+float pHour(float perimeter)
+{
+	return perimeter / 80;
+}
+float nHour(float perHour)
+{
+	return perHour * 43.53;
+}
 int main()
 {	//Input
 	cout << "please enter the length of the room you would like us to trim\n";
@@ -48,19 +52,39 @@ int main()
 	cout << "Now enter the width of the room you would like us to trim as well.\n";
 	cin >> width, "\n";
 	cout << "How many windows do you have in this room\n";
-	cin >> windows, "\n";
+	cin >> win, "\n";
 	cout << "Now enter how many doors you have in this room as well\n";
 	cin >> doors, "\n";
 	system("cls");
 
 	//calculations
-	void perimeterC();
-	void doorWindow();
-	void TotalPrice();
-	void 
+	 perimeter = perimeterC(length,width);
+	 doors = door(doors);
+	 windows = window(win);
+	 totalPrice = TotalPrice(doors,windows,perimeter);
+	finalPrice = FinalPrice(totalPrice);
+	perHour = pHour(perimeter);
+
+
 	//Output
 	cout << "The perimeter of this room is: ";
-	cout << (perimeter) << endl;
+	cout << perimeter << endl;
+	cout << "The measurment of feet from your doors is: ";
+	cout << doors << endl;
+	cout << "The measurement of feet from your windows is: ";
+	cout << windows << endl;
+	cout << " Your subtotal price is: ";
+	cout << totalPrice << endl;
+	cout << " The Final Price With Tax Is: ";
+	cout << finalPrice << endl;
+
+
+
+
+
+
+
+
 
 
 	// The Recipt
@@ -70,3 +94,5 @@ int main()
 
 
 }
+
+
